@@ -1,0 +1,78 @@
+const { command } = require('../utils')
+var inWindow = []
+
+module.exports = class Help extends command {
+    constructor (name, client) {
+        super (name, client)
+        this.aliases = ['ajuda', 'comandos', 'commands']
+    }
+    async run ({message, args, prefix}, t) {
+        var comandos = []
+        var files = this.client.fs.readdirSync('./commands');
+        files.forEach(file => {
+          comandos.push({
+            name: file.split(".")[0],
+            desc: 'a\n' + t(`help:${file.split(".")[0]}.desc`),
+            category: parseInt(t(`help:${file.split(".")[0]}.category`))
+          })
+        })
+        if(args[0] && t(`help:${args[0].toLowerCase()}.desc`) !== `${args[0].toLowerCase()}.desc`) {
+          var cmdName = args[0].toLowerCase()
+          var embed = new this.client.Discord.RichEmbed()
+            .setTitle(`🖇 ${cmdName.firstUpperLetter()}:`)
+            .setDescription(t(`help:${cmdName}.desc`))
+            .addField(t('comandos:help.howToUse'), '```' + t(`help:${cmdName}.howToUse`, { prefix: prefix }) + '```')
+            .setThumbnail('https://i.imgur.com/b4fhI15.png')
+            .setTimestamp(new Date())
+            .setFooter(message.author.username, message.author.displayAvatarURL)
+            .setColor(2631906)
+          message.channel.send(t('comandos:help.cntMessageArg', { cmd: cmdName }), embed)
+        } else {
+          var menu = new this.client.Discord.RichEmbed()
+            .setTitle(t('comandos:help.title'))
+            .setDescription(t('comandos:help.description', { prefix: prefix }))
+            .addField(t('comandos:help.utilities', { count: comandos.filter(cmd => cmd.category === 1).length }), `\`${comandos.filter(cmd => cmd.category === 1).map(cmd => cmd.name).join('`, `')}\``)
+            .setThumbnail('https://i.imgur.com/b4fhI15.png')
+            .setTimestamp(new Date())
+            .setFooter(message.author.username, message.author.displayAvatarURL)
+            .setColor(2631906)
+          if(inWindow.includes(message.author.id + message.channel.id)) return message.channel.send(t('comandos:help.inWindow'))
+          inWindow.push(message.author.id + message.channel.id)
+          message.channel.send(t('comandos:help.cntMessageNoArg'), menu).then(async msg => {
+            try {
+              await msg.react('🔌')
+              await msg.react('🔦')
+              await msg.react('↩')
+              const finalizar = msg.createReactionCollector((r, u) => r.emoji.name === "🔌" && u.id === message.author.id, { time: 120000 });
+              const utilities = msg.createReactionCollector((r, u) => r.emoji.name === "🔦" && u.id === message.author.id, { time: 120000 });
+              const voltar = msg.createReactionCollector((r, u) => r.emoji.name === "↩" && u.id === message.author.id, { time: 120000 });        
+              var embed = new this.client.Discord.RichEmbed()
+                .setThumbnail('https://i.imgur.com/b4fhI15.png')
+                .setTimestamp(new Date())
+                .setFooter(message.author.username, message.author.displayAvatarURL)
+                .setColor(2631906)
+              utilities.on('collect', async r => {
+                r.remove(r.users.last().id).catch(e => {})
+                embed.setTitle(t(`comandos:help.utilities`, { count: comandos.filter(cmd => cmd.category === 1).length }))
+                embed.setDescription(comandos.filter(cmd => cmd.category === 1).map(cmd => `**${cmd.name}** - ${cmd.desc.toLowerCase()}`).join('\n'))
+                msg.edit(embed)
+              })
+              finalizar.on('collect', async r => {
+                msg.delete()
+                message.delete().catch(e => {})
+                inWindow.splice(inWindow.indexOf(message.author.id + message.channel.id), 1)
+              })
+              voltar.on('collect', async r => {
+                r.remove(r.users.last().id).catch(e => {})
+                msg.edit(menu)
+              })
+              finalizar.on('end', async r => {
+                msg.delete()
+                message.delete().catch(e => {})
+                inWindow.splice(inWindow.indexOf(message.author.id + message.channel.id), 1)
+              })
+            } catch(e) {}
+          })
+        }
+    }
+}

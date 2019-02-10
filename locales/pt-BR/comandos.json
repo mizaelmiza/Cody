@@ -1,0 +1,150 @@
+{
+    "autorole": {
+        "noPermission": "😕 É **necessário** possuir a **permissão** `GERENCIAR CARGOS`.",
+        "howToUse": "🗃 Como usar:",
+        "definedRoles": "📋 Cargos definidos:",
+        "none": "Nenhum cargo definido.",
+        "invalidFunction": "😣 A **funçao** `{{function}}` é inválida, tente `add` ou `del`.",
+        "limitRoles": "📀 Você chegou ao **limite** de `5` cargos neste **servidor**.",
+        "noDefinedRoles": "💿 Não há **cargos** para serem **deletados**.",
+        "noMentionRole": "😕 Você deve **mencionar** um **cargo** ou dizer seu **nome** ou **id**.",
+        "invalidRole": "😒 O **cargo** citado **não existe**.",
+        "alreadyDefined": "😒 O **cargo** citado **já está definido**.",
+        "roleNotDefined": "😒 O **cargo** citado **não está definido**.",
+        "noPermRole": "😶 Você **não tem** permissão para **dar** este **cargo** à **outras pessoas**.",
+        "noPermRoleBot": "😶 Eu **não** possuo **permissão** para adicionar **este** cargo à **outras pessoas**.",
+        "addedRole": "✅ O **cargo** `{{role}}` foi **adicionado ao autorole**.",
+        "removedRole": "❌ O **cargo** `{{role}}` foi **removida do autorole**."
+    },
+    "avatar": {
+        "title": "🖼 Imagem de {{user}}"
+    },
+    "botban": {
+        "noPermission": "😒 Você **precisa** ser um `owner`, `subowner`, `operator`, `developer` ou `supervisor` para usar **este** comando",
+        "howToUse": "🗃 Como usar:",
+        "noUserDB": "😶 O **usuário mencionado** parece **não** estar registrado em meu **banco de dados**, tente usar o comando novamente.",
+        "iMentioned": "😕 Você **não pode** banir **você mesmo**.",
+        "botMention": "😶 Você **não** pode **banir um bot**.",
+        "mentionedStaff": "🕵 O **usuário mencionado** faz parte da **staff** do bot.",
+        "unbanned": "✅ O **usuário** {{member}} foi **desbanido**.",
+        "bannedNoTime": "✅ O **usuário** {{member}} foi **permanentemente banido**.",
+        "bannedTime": "✅ O **usuário** {{member}} foi **banido** até **{{time}}**."
+    },
+    "botconfig": {
+        "noPermission": "😒 Você **precisa** ser um `owner`, `subowner`, `operator` ou `developer` para usar **este** comando.",
+        "howToUse": "🗃 Como usar:",
+        "invalidFunc": "😕 A função `{{func}}` **não existe**.",
+        "noCmdManu": "🙄 É necessário **inserir** o comando que **entrará** para manutenção.",
+        "cmdNotExist": "🙄 O **comando** parece não **existir**.",
+        "activated": "✅ O comando `{{cmd}}` entrou para à **manutenção**.",
+        "disabled": "❌ O comando `{{cmd}}` saiu da **manutenção**."
+    },
+    "concierge": {
+        "noPermission": "😕 É **necessário** possuir a **permissão** `GERENCIAR SERVIDOR`.",
+        "howToUse": "🗃 Como usar:",
+        "invalidAct": "😒 A **ação** `{{act}}` parece **não existir**.",
+        "noFunction": "🙄 Você **precisa** citar uma **função**, tente `set` ou `del`",
+        "invalidFunction": "😣 A **funçao** `{{function}}` é inválida, tente `add` ou `del`.",
+        "noMsg": "🙄 Você **precisa** citar à **mensagem** que **será enviada**.",
+        "definedWelcome": "✅ A **mensagem** `{{msg}}` foi **definida** como mensagem de **boas-vindas**.",
+        "welcomeNotDefined": "🙄 Mensagem de **boas-vindas** não foi **definida**.",
+        "removedWelcome": "❌ Sistema de **boas-vindas** foi **removido** deste servidor.",
+        "definedByebye": "✅ A **mensagem** `{{msg}}` foi **definida** como mensagem de **despedida**.",
+        "byebyeNotDefined": "🙄 Mensagem de **despedida** não foi **definida**.",
+        "removedByebye": "❌ Sistema de **despedida** foi **removido** deste servidor.",
+        "parametersTo": "⚙ Parâmetros:",
+        "parameters": "```{member} menciona o usuário\n{user.name} cita o nome de usuário\n{user.id} cita o id do usuário\n{guild} cita o nome do servidor```"
+    },
+    "clear": {
+        "noArgs": "🙄 Você **precisa** citar a **quantidade de mensagens** à serem **deletadas**.",
+        "noPerm": "🙄 Parece que **não tenho permissão** para **executar** esta função, **verifique** se possuo a permissão `GERENCIAR MENSAGENS`.",
+        "notNumber": "😒 `{{nan}}` **não** é **um número**.",
+        "number0": "😣 **Não** é **possível** deletar **{{count}} mensagens**.",
+        "more100": "🙄 O **número** `{{number}}` é **maior** que **100**.",
+        "cleared": "✅ Foram deletadas **{{count}} mensagens** por **{{member}}**."
+    },
+    "eval": {
+        "noPermission": "😒 Você **precisa** ser um `owner`, `subowner` ou `developer` para usar **este** comando.",
+        "noThisServer": "😒 Este **comando** só pode ser **executado** em meu **servidor principal**.",
+        "noCode": "🙄 É necessário **inserir** um código para execução.",
+        "code": "💿 Código:",
+        "result": "📀 Resultado:",
+        "error": "⚠ Erro:"
+    },
+    "forms": {
+        "noPermission": "😒 Você **precisa** ser um `owner`, `subowner` ou `operator` para usar **este** comando.",
+        "notHaveForms": "🙄 Não foi encontrado **nenhum** formulário.",
+        "inWindow": "🙄 Você **já está** com uma janela de formulários **aberta**, **finalize** ela, ou aguarde **2 minutos**.",
+        "approved": "😅 O **formulário** de {{member}} para `{{role}}` foi **aprovado** por {{author}}.",
+        "refused": "😪 O **formulário** de {{member}} para `{{role}}` foi **recusado** por {{author}}."
+    },
+    "help": {
+        "cntMessageNoArg": "🙄 Aqui estão alguns **comandos** disponíveis no bot.",
+        "title": "Informação rápida:",
+        "description": "Aqui estão **várias** categorias de **comandos**, basta reagir com o **emoji** da **categoria** desejada ou **finalizar** o comando reagindo com 🔌\n\nVisualize **separadamente** os **comandos** com: `{{prefix}}help <command>`",
+        "utilities": "🔦 Utilidades ({{count}} comandos):",
+        "inWindow": "🙄 Você **já está** com uma janela de ajuda **aberta** neste canal, **finalize** ela, ou aguarde **2 minutos**.",
+        "howToUse": "🗃 Como usar:",
+        "cntMessageArg": "🙄 Aqui estão as **informações** do **comando** `{{cmd}}`."
+    },
+    "info": {
+        "cntMessage": "🙄 Aqui estão **várias** informações **sobre mim**.",
+        "title": "Informações:",
+        "description": "Olá, sou **Cody**, um bot criado por **{{myFounder}}** para lhe **ajudar** em **várias** coisas em seu servidor, como **moderação**, comandos de **utilidades** e lhe **divertir**.",
+        "statistics": "🛰  Estatísticas:",
+        "statisticsDesc": "- **{{ping}}**ms\n- **{{memory}}**MB memória usada\n- **{{votes}}** votos",
+        "community": "👥 Comunidade:",
+        "communityDesc": "- **{{guilds}}** servidores\n- **{{channels}}** canais\n- **{{users}}** usuários",
+        "uptime": "⏱ Tempo ligado:",
+        "urls": "🌏 Urls:"
+    },
+    "lang": {
+        "noPermission": "😕 É **necessário** possuir a **permissão** `GERENCIAR SERVIDOR`.",
+        "inWindow": "🙄 **Você** já está com uma **jánela** de linguagem aberta, **finalize-a** ou aguarde **1 minuto**.",
+        "noPermBot": "😕 Não tenho **permissão** para adicionar **reações**.",
+        "title": "📋 Linguagens:",
+        "notHaveErrors": "sem erros no momento",
+        "currentLanguage": "idioma já definido",
+        "desc": "Para alterar o **idioma do bot**, basta **reagir** na bandeira de seu **pais**.\n\nErro: `{{error}}`",
+        "defined": "✅ O **idioma** `{{lang}}` foi **definido**."
+    },
+    "staff": {
+        "userNotFound": "**Não encontrado#0000**",
+        "title": "Informação Rápida:",
+        "desc": "Abaixo está toda a **equipe** responsável pelo **desenvolvimento** do bot **Cody**, se **deseja** fazer parte dessa **maravilhosa** equipe **execute o comando**: `{{prefix}}staff form`",
+        "footer": "Atualizado à {{lastUpdate}} minutos atrás. (15 em 15 minutos)",
+        "owners": "👑 Donos(as):",
+        "subowners": "👑 Sub Donos(as):",
+        "operators": "👷 Operadores(as):",
+        "developers": "🔐 Programadores(as):",
+        "supervisors": "🕵 Supervisores(as):",
+        "designers": "🖼 Designers:",
+        "inWindow": "🙄 **Você** já está com uma **jánela** de formulário aberta, **finalize-a** ou aguarde **1 minuto**.",
+        "notHaveErrors": "sem erros no momento",
+        "formAlreadySubmitted": "formulário já enviado",
+        "alreadyHaveRole": "cargo já possuído",
+        "timesUp": "🙄 **Tempo esgotado!** {{member}}, você **demorou** ao adicionar sua **reação** à mensagem.",
+        "reasonForRole": "🔐 {{member}}, Diga o **mótivo** de querer se **tornar** `{{role}}` do bot **Cody**. (digite `cancel` para cancelar ou aguarde 1 minuto )",
+        "timesUpReason": "🙄 **Tempo esgotado!** {{member}}, você **demorou** ao dizer o **mótivo**.",
+        "thankYou": "😊 Obrigado **{{member}}** por enviar seu **formulário**.",
+        "canceled": "😒 {{member}}, seu **formulário** foi cancelado.",
+        "submited": "😊 O usuário **{{member}}** acaba de **enviar** um formulário para `{{role}}`.",
+        "formTitle": "🕵 Formulários:",
+        "formDesc": "Para **enviar** seu **formulário**, basta reagir com o **número** do cargo.\n\n**Erro:** `{{error}}`\n\n**:one: Desenvolvedor\n:two: Supervisor\n:three: Designer**"
+    },
+    "staffrole": {
+        "noPermission": "😒 Você **precisa** ser um `owner`, `subowner`, `operator` ou `developer` para usar **este** comando.",
+        "howToUse": "🗃 Como usar:",
+        "roles": "📈 Cargos:",
+        "invalidFunction": "😣 A **funçao** `{{function}}` é inválida, tente `add` ou `del`.",
+        "roleNotExist": "😕 O cargo `{{role}}` não existe, tente `{{roles}}`.",
+        "noMention": "😯 Você **precisa** mencionar **um** usuário que deseja **dar** o cargo.",
+        "mentionBot": "👾 Um bot **não** pode se **tornar staff**.",
+        "noRolePermission": "😟 Você **não** pode dar seu **próprio** cargo ou **superiores**.",
+        "noUserDB": "😶 O **usuário mencionado** parece **não** estar registrado em meu **banco de dados**, tente usar o comando novamente.",
+        "alreadyHaveRole": "😑 O usuário já possui **este** cargo.",
+        "roleNotFound": "🙄 O usuário mencionado **não** possui **este** cargo.",
+        "added": "✅ O cargo `{{role}}` foi **adicionado** ao usuário.",
+        "removed": "❌ O cargo `{{role}}` foi **retirado** do usuário."
+    }
+}
