@@ -11,6 +11,7 @@ module.exports = class Cody extends Client {
         this.translationBackend = require('i18next-node-fs-backend')
         this.moment = require('moment')
         this.ms = require('ms')
+        this.setGameTime = Date.now()
         this.shardLog = async (cnt) => {
             cnt = `Shard ${this.shard.id + 1}: ${cnt}`
             console.log(cnt)
@@ -134,7 +135,7 @@ module.exports = class Cody extends Client {
             }
         }
         this.setGame = async (content) => {
-            if((Date.now() - setGameTime) >= 240000 || content.force) {
+            if((Date.now() - this.setGameTime) >= 240000 || content.force) {
                 if(content.random) {
                     var randomGames = [{
                         content: `Cody - ${await this.usersAlt.size()} usuários em ${await this.guildsAlt.size()} servidores com ${await this.channelsAlt.size()} canais.`,
@@ -186,7 +187,7 @@ module.exports = class Cody extends Client {
                     } else {
                         this.user.setPresence({ game: { name: random.content, type: random.type } });
                     }
-                    setGameTime = Date.now()
+                    this.setGameTime = Date.now()
                 } else {
                     if(content.url) {
                         this.user.setPresence({ game: { name: content.txt, type: content.type, url: content.url } });
