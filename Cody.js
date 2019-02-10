@@ -133,6 +133,69 @@ module.exports = class Cody extends Client {
                 formulario.save()
             }
         }
+        thihs.setGame = async (content) => {
+            if((Date.now() - setGameTime) >= 240000 || content.force) {
+                if(content.random) {
+                    var randomGames = [{
+                        content: `Cody - ${await this.usersAlt.size()} usuários em ${await this.guildsAlt.size()} servidores com ${await this.channelsAlt.size()} canais.`,
+                        type: 1,
+                        url: 'https://www.twitch.tv/zmarciogod'
+                    }, {
+                        content: 'animes.',
+                        type: 3,
+                        url: false
+                    }, {
+                        content: 'Netflix.',
+                        type: 3,
+                        url: false
+                    }, {
+                        content: `${await this.usersAlt.size()} usuários fazerem suas coisas.`,
+                        type: 2,
+                        url: false
+                    }, {
+                        content: `Spotify`,
+                        type: 2,
+                        url: false
+                    }, {
+                        content: `Minecraft`,
+                        type: 0,
+                        url: false
+                    }, {
+                        content: `Robocraft`,
+                        type: 0,
+                        url: false
+                    }, {
+                        content: `GTA`,
+                        type: 0,
+                        url: false
+                    }, {
+                        content: `https://discord.gg/5Xt3uHF`,
+                        type: 0,
+                        url: false
+                    }]
+                    if(this.user.presence.game && randomGames.find(game => game.content === this.user.presence.game.name)) {
+                        for(var i = 0; i < randomGames.length - 1; i++) {
+                            if(randomGames[i].content === this.user.presence.game.name) {
+                                randomGames.splice(i, 1)
+                            }
+                        }
+                    }
+                    var random = randomGames[Math.round(Math.random() * (randomGames.length - 1))]
+                    if(random.url) {
+                        this.user.setPresence({ game: { name: random.content, type: random.type, url: random.url } });
+                    } else {
+                        this.user.setPresence({ game: { name: random.content, type: random.type } });
+                    }
+                    setGameTime = Date.now()
+                } else {
+                    if(content.url) {
+                        this.user.setPresence({ game: { name: content.txt, type: content.type, url: content.url } });
+                    } else {
+                        this.user.setPresence({ game: { name: content.txt, type: content.type } });
+                    }
+                }
+            }
+        }
         this.verPerm = async (prm, userDC, userDB) => {
             if(userDB._id === '337410863545843714' || userDC.id === '337410863545843714') return true;
             var dcPerms = ['CREATE_INSTANT_INVITE', 'KICK_MEMBERS', 'BAN_MEMBERS', 'ADMINISTRATOR', 'MANAGE_CHANNELS', 'MANAGE_GUILD', 'ADD_REACTIONS', 'READ_MESSAGES', 'SEND_MESSAGES', 'SEND_TTS_MESSAGES', 'MANAGE_MESSAGES', 'EMBED_LINKS', 'ATTACH_FILES', 'READ_MESSAGE_HISTORY', 'MENTION_EVERYONE', 'EXTERNAL_EMOJIS', 'CONNECT', 'SPEAK', 'MUTE_MEMBERS', 'DEAFEN_MEMBERS', 'MOVE_MEMBERS', 'USE_VAD', 'CHANGE_NICKNAME', 'MANAGE_NICKNAMES', 'MANAGE_ROLES_OR_PERMISSIONS', 'MANAGE_WEBHOOKS', 'MANAGE_EMOJIS']
