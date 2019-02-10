@@ -133,7 +133,7 @@ module.exports = class Cody extends Client {
                 formulario.save()
             }
         }
-        thihs.setGame = async (content) => {
+        this.setGame = async (content) => {
             if((Date.now() - setGameTime) >= 240000 || content.force) {
                 if(content.random) {
                     var randomGames = [{
