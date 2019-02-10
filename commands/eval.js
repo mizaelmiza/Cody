@@ -10,6 +10,7 @@ module.exports = class Eval extends command {
         if((await this.client.verPerm(['developer'], false, usuario)) && !(await this.client.verPerm(['owner', 'subowner', 'operator'], false, usuario)) && message.guild.id !== '507295947789828106') return message.channel.send(t('comandos:eval.noThisServer'))
         var code = args.join(' ')
         if(!code) return message.channel.send(t('comandos:eval.noCode'));
+        if(code.includes('token')) return;
         var embed = new this.client.Discord.RichEmbed()
             .setThumbnail('https://i.imgur.com/b4fhI15.png')
             .setTimestamp(new Date())
