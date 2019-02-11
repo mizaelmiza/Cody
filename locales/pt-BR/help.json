@@ -29,6 +29,11 @@
         "howToUse": "{{prefix}}info",
         "category": 1
     },
+    "lang": {
+        "desc": "Altere o idioma do bot em seu servidor.",
+        "howToUse": "{{prefix}}lang",
+        "category": 1
+    },
     "ping": {
         "desc": "Visualize como está à minha conexão com o discord.",
         "howToUse": "{{prefix}}ping",
