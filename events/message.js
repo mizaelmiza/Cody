@@ -49,7 +49,7 @@ module.exports = async function (message) {
                                             if(cmdDB.maintenance && !(await this.verPerm(['owner', 'subowner', 'developer', 'supervisor', 'designer'], false, usuario))) return message.channel.send(t('eventos:cmdInManu', { cmd: command }))
                                             commandRun.process({message, args, prefix, usuario, servidor}, t, setFixedT)
                                             var random = Math.round(Math.random() * 1000)
-                                            if(random >= 500 && random <= 740) {
+                                            if(random >= 500 && random <= 610) {
                                                 message.channel.send(t('eventos:voteInDBL', { member: message.member }))
                                             }
                                         } else {
