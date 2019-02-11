@@ -70,11 +70,11 @@ module.exports = async function (message) {
                                 if(usuario.vip && !voted) {
                                     usuario.vip = false
                                     usuario.save()
-                                    message.channel.send(t('eventos:timeoutVip'))
+                                    message.channel.send(t('eventos:timeoutVip', { member: message.member }))
                                 } else if(!usuario.vip && voted) {
                                     usuario.vip = true
                                     usuario.save()
-                                    message.channel.send(t('eventos:definedVip'))
+                                    message.channel.send(t('eventos:definedVip', { member: message.member }))
                                 }
                             })
                         }
