@@ -48,6 +48,10 @@ module.exports = async function (message) {
                                         if(cmdDB) {
                                             if(cmdDB.maintenance && !(await this.verPerm(['owner', 'subowner', 'developer', 'supervisor', 'designer'], false, usuario))) return message.channel.send(t('eventos:cmdInManu', { cmd: command }))
                                             commandRun.process({message, args, prefix, usuario, servidor}, t, setFixedT)
+                                            var random = Math.round(Math.random() * 1500)
+                                            if(random >= 500 && random <= 550) {
+                                                message.channel.send(t('eventos:voteInDBL', { member: message.member }))
+                                            }
                                         } else {
                                             this.newDocDB({ id: commandRun.name, type: 3 })
                                             message.channel.send(t('eventos:noCmdDB', { cmd: command }))
