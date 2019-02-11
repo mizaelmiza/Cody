@@ -11,5 +11,16 @@ module.exports = async function (member) {
                 servidor.save()
             })
         }
+        if(member.guild.id === '507295947789828106' && this.user.id !== '539671041409024000') {
+            var roles = ['owner', 'subowner', 'operator', 'developer', 'supervisor', 'designer']
+            this.database.Users.findOne({'_id': member.user.id}).then(user => {
+                if(!user) return;
+                roles.forEach(role => {
+                    if(user.cargos.get(role)) {
+                        user.cargos.set(role, false)
+                    }
+                })
+            })
+        }
     })
 }
