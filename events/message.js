@@ -39,23 +39,23 @@ module.exports = async function (message) {
                                 var tempoRestante = (parseInt(usuario.cmdcoldown) + 3000) - (tempoPassado + parseInt(usuario.cmdcoldown))
                                 var segundos = parseInt(tempoRestante/1000)
                                 var milesimos = tempoRestante - (segundos*1000)
-                                if (tempoPassado < 3000) return message.channel.send(t('eventos:cmdCooldown', { member: message.member, seconds: segundos, thousandth: milesimos }));
-                                usuario.cmdcoldown = Date.now()
-                                usuario.save();
                                 var commandRun = this.commands.find(c => c.name === command || c.aliases.includes(command))
                                 if (commandRun) {
-                                this.database.Commands.findOne({'_id': commandRun.name}).then(async cmdDB => {
-                                        if(cmdDB) {
-                                            if(cmdDB.maintenance && !(await this.verPerm(['owner', 'subowner', 'developer', 'supervisor', 'designer'], false, usuario))) return message.channel.send(t('eventos:cmdInManu', { cmd: command }))
-                                            commandRun.process({message, args, prefix, usuario, servidor}, t, setFixedT)
-                                            var random = Math.round(Math.random() * 1000)
-                                            if(random >= 500 && random <= 610) {
-                                                message.channel.send(t('eventos:voteInDBL', { member: message.member }))
+                                    if (tempoPassado < 3000) return message.channel.send(t('eventos:cmdCooldown', { member: message.member, seconds: segundos, thousandth: milesimos }));
+                                    usuario.cmdcoldown = Date.now()
+                                    usuario.save();
+                                    this.database.Commands.findOne({'_id': commandRun.name}).then(async cmdDB => {
+                                            if(cmdDB) {
+                                                if(cmdDB.maintenance && !(await this.verPerm(['owner', 'subowner', 'developer', 'supervisor', 'designer'], false, usuario))) return message.channel.send(t('eventos:cmdInManu', { cmd: command }))
+                                                commandRun.process({message, args, prefix, usuario, servidor}, t, setFixedT)
+                                                var random = Math.round(Math.random() * 1000)
+                                                if(random >= 500 && random <= 590) {
+                                                    message.channel.send(t('eventos:voteInDBL', { member: message.member }))
+                                                }
+                                            } else {
+                                                this.newDocDB({ id: commandRun.name, type: 3 })
+                                                message.channel.send(t('eventos:noCmdDB', { cmd: command }))
                                             }
-                                        } else {
-                                            this.newDocDB({ id: commandRun.name, type: 3 })
-                                            message.channel.send(t('eventos:noCmdDB', { cmd: command }))
-                                        }
                                     })
                                 }
                             } catch (err) {
