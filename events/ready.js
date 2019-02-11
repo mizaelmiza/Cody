@@ -2,9 +2,9 @@ module.exports = async function () {
     setTimeout(async () => {
         this.shardLog(`${this.user.tag} iniciado`)
         this.setGame({random: true, force: true})
-        this.dbl.postStats(this.guilds.size, this.shards.Id, this.shards.total);
+        this.dbl.postStats(this.guilds.size, this.shard.id, this.shards.count);
         setInterval(() => {
-            this.dbl.postStats(client.guilds.size, client.shards.Id, client.shards.total);
+            this.dbl.postStats(this.guilds.size, this.shard.id, this.shard.count);
         }, 1800000);
         setInterval(async () => {
             this.setGame({random: true, force: false})
