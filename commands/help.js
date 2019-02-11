@@ -13,6 +13,7 @@ module.exports = class Help extends command {
           comandos.push({
             name: file.split(".")[0],
             desc: 'a\n' + t(`help:${file.split(".")[0]}.desc`),
+            aliases: this.client.commands.get(file.split(".")[0]).aliases,
             category: parseInt(t(`help:${file.split(".")[0]}.category`))
           })
         })
@@ -22,6 +23,7 @@ module.exports = class Help extends command {
             .setTitle(`🖇 ${cmdName.firstUpperLetter()}:`)
             .setDescription(t(`help:${cmdName}.desc`))
             .addField(t('comandos:help.howToUse'), '```' + t(`help:${cmdName}.howToUse`, { prefix: prefix }) + '```')
+            .addField(t('comandos:help.aliases'), comandos.find(command => command.name === cmdName).aliases.map(aliase => prefix + aliases).join('\n'))
             .setThumbnail('https://i.imgur.com/b4fhI15.png')
             .setTimestamp(new Date())
             .setFooter(message.author.username, message.author.displayAvatarURL)
