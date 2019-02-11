@@ -49,6 +49,9 @@ module.exports = async function (member) {
                     member.addRole(role.roleID)
                 }
             })
+            if(user.vip) {
+                member.addRole('544580493866434560')
+            }
         })
     }
 }

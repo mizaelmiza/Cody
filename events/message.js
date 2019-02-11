@@ -99,12 +99,17 @@ module.exports = async function (message) {
                             }]
                             this.database.Users.findOne({'_id': message.author.id}).then(user => {
                                 roles.forEach(role => {
-                                    if(user.cargos.get(role.name)) {
+                                    if(user.cargos.get(role.name) && !message.member.roles.get(role.roleID)) {
                                         message.member.addRole(role.roleID)
-                                    } else if(message.member.roles.get(role.roleID)) {
+                                    } else if(message.member.roles.get(role.roleID) && !user.cargos.get(role.name)) {
                                         message.member.removeRole(role.roleID)
                                     }
                                 })
+                                if(user.vip && !message.member.roles.get('544580493866434560')) {
+                                    message.member.addRole('544580493866434560')
+                                } else if(message.member.roles.get('544580493866434560') && !user.vip) {
+                                    message.member.removeRole('544580493866434560')
+                                }
                             })
                         }
                     } else {
