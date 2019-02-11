@@ -86,6 +86,7 @@
         "inWindow": "🙄 Você **já está** com uma janela de ajuda **aberta** neste canal, **finalize** ela, ou aguarde **2 minutos**.",
         "howToUse": "🗃 Como usar:",
         "aliases": "📖 Alternativas:",
+        "notHaveAliases": "Não há outras formas de usar este comando.",
         "cntMessageArg": "🙄 Aqui estão as **informações** do **comando** `{{cmd}}`."
     },
     "info": {
