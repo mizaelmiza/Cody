@@ -2,5 +2,7 @@
     "cmdCooldown": "🙄 {{member}}, aguarde **{{seconds}}** segundos e **{{thousandth}}** milésimos para usar outro comando.",
     "noCmdDB": "🤗 O **comando** `{{cmd}}` parece não estar **registrado**, tente usa-lo **novamente**.",
     "cmdInManu": "😕 O **comando** `{{cmd}}` está em **manutenção**",
+    "timeoutVip": "🙄 {{member}}, o tempo de **seu** vip **acabou**, vote novamente para receber seu **vip** de volta.\nhttps://discordbots.org/bot/507292506942210048",
+    "definedVip": "🤗 **Obrigado por votar** no bot **Cody** {{member}}, você agora é um **usuário vip**.",
     "unbanned": "🙄 {{member}}, você **finalmente** foi **desbanido**, agora **você** já pode usar **minhas funções** livremente."
 }

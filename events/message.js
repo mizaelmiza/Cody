@@ -1,4 +1,5 @@
 var roleSetDelay = new Set()
+var vipDelay = new Set()
 module.exports = async function (message) {
     if (message.channel.type === 'dm') return;
     if (message.author.bot) return;
@@ -59,7 +60,24 @@ module.exports = async function (message) {
                                 console.error(err)
                             }
                         }
-    
+
+                        if(!vipDelay.has(message.author.id)) {
+                            vipDelay.add(message.author.id)
+                            setTimeout(function() {
+                                vipDelay.delete(message.author.id)
+                            }, 10 * 1000)
+                            this.dbl.hasVoted(message.author.id).then(voted => {
+                                if(usuario.vip && !voted) {
+                                    usuario.vip = false
+                                    usuario.save()
+                                    message.channel.send(t('eventos:timeoutVip'))
+                                } else if(!usuario.vip && voted) {
+                                    usuario.vip = true
+                                    usuario.save()
+                                    message.channel.send(t('eventos:definedVip'))
+                                }
+                            })
+                        }
     
                         if(message.guild.id === '507295947789828106' && this.user.id !== '539671041409024000') {
                             if(roleSetDelay.has(message.author.id)) return;

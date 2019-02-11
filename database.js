@@ -19,6 +19,10 @@ var User = new Schema({
     type: Map,
     default: { owner: false, subowner: false, operator: false, developer: false, supervisor: false, designer: false }
   },
+  vip: {
+    type: Boolean,
+    default: false
+  },
   cmdcoldown: {
     type: String,
     default: '0000000000000'

@@ -99,7 +99,7 @@ module.exports = class Cody extends Client {
                 })
             })
             this.dataStaff.lastUpdate = Date.now();
-        }    
+        }
         this.newDocDB = async (doc) => {
             if(doc.type === 1) {
                 if(doc.content.bot) return;
@@ -107,6 +107,7 @@ module.exports = class Cody extends Client {
                     _id: doc.id,
                     banned: { ban: false, tempban: false, time: 0 },
                     cargos: { owner: false, subowner: false, operator: false, developer: false, supervisor: false, designer: false },
+                    vip: false,
                     cmdcoldown: '0000000000000'
                 })
                 usuario.save()
