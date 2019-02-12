@@ -23,7 +23,7 @@ module.exports = class Help extends command {
             .setTitle(`🖇 ${cmdName.firstUpperLetter()}:`)
             .setDescription(t(`help:${cmdName}.desc`))
             .addField(t('comandos:help.howToUse'), '```' + t(`help:${cmdName}.howToUse`, { prefix: prefix }) + '```')
-            .addField(t('comandos:help.aliases'), comandos.filter(command => command.name === cmdName).length > 0 ? '```' + comandos.filter(command => command.name === cmdName)[0].aliases.map(aliase => prefix + aliase).join('\n') + '```' : t('comandos:help.notHaveAliases'))
+            .addField(t('comandos:help.aliases'), comandos.filter(command => command.name === cmdName)[0].aliases.length > 0 ? '```' + comandos.filter(command => command.name === cmdName)[0].aliases.map(aliase => prefix + aliase).join('\n') + '```' : t('comandos:help.notHaveAliases'))
             .setThumbnail('https://i.imgur.com/b4fhI15.png')
             .setTimestamp(new Date())
             .setFooter(message.author.username, message.author.displayAvatarURL)
