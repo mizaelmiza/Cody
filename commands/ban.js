@@ -14,7 +14,7 @@ module.exports = class BotBan extends command {
         if(message.member.highestRole.position <= member.highestRole.position && message.guild.owner.id !== message.author.id) return message.channel.send(t('comandos:ban.topRole'))
         if(!member.bannable) return message.channel.send(t('comandos:ban.notBannable'));
         var motivo = args[1] ? args.slice(1).join(' ') : t('comandos:ban.notReason')
-        var banned = await member.ban(motivo)
-        message.channel.send(t('comandos:ban.banned', { author: message.member, member: member }))
+        banned = await member.ban(motivo)
+        message.channel.send(t('comandos:ban.banned', { author: message.member, member: member.user.tag }))
     }
 }
