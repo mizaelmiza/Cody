@@ -34,6 +34,7 @@ module.exports = class Help extends command {
             .setTitle(t('comandos:help.title'))
             .setDescription(t('comandos:help.description', { prefix: prefix }))
             .addField(t('comandos:help.utilities', { count: comandos.filter(cmd => cmd.category === 1).length }), `\`${comandos.filter(cmd => cmd.category === 1).map(cmd => cmd.name).join('`, `')}\``)
+            .addField(t('comandos:help.moderation', { count: comandos.filter(cmd => cmd.category === 2).length }), `\`${comandos.filter(cmd => cmd.category === 2).map(cmd => cmd.name).join('`, `')}\``)
             .setThumbnail('https://i.imgur.com/b4fhI15.png')
             .setTimestamp(new Date())
             .setFooter(message.author.username, message.author.displayAvatarURL)
