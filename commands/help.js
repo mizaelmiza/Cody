@@ -17,8 +17,9 @@ module.exports = class Help extends command {
             category: parseInt(t(`help:${file.split(".")[0]}.category`))
           })
         })
-        if(args[0] && t(`help:${args[0].toLowerCase()}.desc`) !== `${args[0].toLowerCase()}.desc`) {
-          var cmdName = args[0].toLowerCase()
+        var commandAlt = args[0] ? this.client.commands.find(c => c.name === args[0] || c.aliases.includes(args[0])) : false
+        if(commandAlt && t(`help:${commandAlt.name.toLowerCase()}.desc`) !== `${commandAlt.name.toLowerCase()}.desc`) {
+          var cmdName = commandAlt.name.toLowerCase()
           var embed = new this.client.Discord.RichEmbed()
             .setTitle(`🖇 ${cmdName.firstUpperLetter()}:`)
             .setDescription(t(`help:${cmdName}.desc`))
