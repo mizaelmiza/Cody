@@ -42,11 +42,13 @@ module.exports = class Help extends command {
           inWindow.push(message.author.id + message.channel.id)
           message.channel.send(t('comandos:help.cntMessageNoArg'), menu).then(async msg => {
             try {
-              await msg.react('🔌')
               await msg.react('🔦')
+              await msg.react('⚒')
               await msg.react('↩')
-              const finalizar = msg.createReactionCollector((r, u) => r.emoji.name === "🔌" && u.id === message.author.id, { time: 120000 });
+              await msg.react('❌')
+              const finalizar = msg.createReactionCollector((r, u) => r.emoji.name === "❌" && u.id === message.author.id, { time: 120000 });
               const utilities = msg.createReactionCollector((r, u) => r.emoji.name === "🔦" && u.id === message.author.id, { time: 120000 });
+              const moderation = msg.createReactionCollector((r, u) => r.emoji.name === "⚒" && u.id === message.author.id, { time: 120000 });
               const voltar = msg.createReactionCollector((r, u) => r.emoji.name === "↩" && u.id === message.author.id, { time: 120000 });        
               var embed = new this.client.Discord.RichEmbed()
                 .setThumbnail('https://i.imgur.com/b4fhI15.png')
@@ -56,6 +58,12 @@ module.exports = class Help extends command {
               utilities.on('collect', async r => {
                 r.remove(r.users.last().id).catch(e => {})
                 embed.setTitle(t(`comandos:help.utilities`, { count: comandos.filter(cmd => cmd.category === 1).length }))
+                embed.setDescription(comandos.filter(cmd => cmd.category === 1).map(cmd => `**${cmd.name}** - ${cmd.desc.toLowerCase()}`).join('\n'))
+                msg.edit(embed)
+              })
+              moderation.on('collect', async r => {
+                r.remove(r.users.last().id).catch(e => {})
+                embed.setTitle(t(`comandos:help.moderation`, { count: comandos.filter(cmd => cmd.category === 2).length }))
                 embed.setDescription(comandos.filter(cmd => cmd.category === 1).map(cmd => `**${cmd.name}** - ${cmd.desc.toLowerCase()}`).join('\n'))
                 msg.edit(embed)
               })

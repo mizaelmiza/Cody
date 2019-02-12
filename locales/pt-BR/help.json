@@ -9,6 +9,11 @@
         "howToUse": "{{prefix}}avatar\n{{prefix}}avatar <user-mention>\n{{prefix}}avatar <user-name>\n{{prefix}}avatar <user-tag>\n{{prefix}}avatar <user-id>\n{{prefix}}avatar <nickname>\n{{prefix}}avatar <similary>",
         "category": 1
     },
+    "ban": {
+        "desc": "Expulsa um usuário do servidor e o proíba de entrar novamente até o desbanimento.",
+        "howToUse": "{{prefix}}ban\n{{prefix}}ban <reason>",
+        "category": 2
+    },
     "clear": {
         "desc": "Elimina uma quantidade especifica de mensagens.",
         "howToUse": "{{prefix}}clear <numberOfMessages>",

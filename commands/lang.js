@@ -6,7 +6,7 @@ module.exports = class Ping extends command {
         super (name, client)
         this.aliases = ['language', 'idioma']
     }
-    async run ({message, args, servidor, usuario}, t , setFixedT) {
+    async run ({message, servidor, usuario}, t , setFixedT) {
         if(!await this.client.verPerm(['MANAGE_GUILD', 'owner', 'subowner', 'operator', 'developer', 'supervisor'], message.member, usuario)) return message.channel.send(t('comandos:lang.noPermission'));
         if(!message.channel.permissionsFor(this.client.user.id).has('ADD_REACTIONS')) return message.channel.send(t('comandos:lang.noPermBot'))
         if(inWindow.includes(message.author.id)) return message.channel.send(t('comandos:lang.inWindow'))

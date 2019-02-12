@@ -19,6 +19,14 @@
     "avatar": {
         "title": "🖼 Imagem de {{user}}"
     },
+    "ban": {
+        "noPermission": "😕 É **necessário** possuir a **permissão** `BANIR MEMBROS`.",
+        "noBotPermBan": "😒 Parece que **não possuo** a permissão `BANIR MEMBROS` no **servidor**.",
+        "noArgs": "😶 É preciso **mencionar** o usuário que **deseja banir**.",
+        "topRole": "🙄 O **usuário mencionado** possui um cargo **mais alto** que o seu.",
+        "notBannable": "😒 Parece que **não consigo banir** este usuário.",
+        "notReason": "Mótivo não mencionado."
+    },
     "botban": {
         "noPermission": "😒 Você **precisa** ser um `owner`, `subowner`, `operator`, `developer` ou `supervisor` para usar **este** comando",
         "howToUse": "🗃 Como usar:",
@@ -81,8 +89,9 @@
     "help": {
         "cntMessageNoArg": "🙄 Aqui estão alguns **comandos** disponíveis no bot.",
         "title": "Informação rápida:",
-        "description": "Aqui estão **várias** categorias de **comandos**, basta reagir com o **emoji** da **categoria** desejada ou **finalizar** o comando reagindo com 🔌\n\nVisualize **separadamente** os **comandos** com: `{{prefix}}help <command>`",
+        "description": "Aqui estão **várias** categorias de **comandos**, basta reagir com o **emoji** da **categoria** desejada ou **finalizar** o comando reagindo com ❌\n\nVisualize **separadamente** os **comandos** com: `{{prefix}}help <command>`",
         "utilities": "🔦 Utilidades ({{count}} comandos):",
+        "moderation": "⚒ Moderação ({{count}} comandos):",
         "inWindow": "🙄 Você **já está** com uma janela de ajuda **aberta** neste canal, **finalize** ela, ou aguarde **2 minutos**.",
         "howToUse": "🗃 Como usar:",
         "aliases": "📖 Alternativas:",
