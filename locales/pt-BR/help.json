@@ -10,7 +10,7 @@
         "category": 1
     },
     "ban": {
-        "desc": "Expulsa um usuário do servidor e o proíba de entrar novamente até o desbanimento.",
+        "desc": "Execute um banimento em um usuário.",
         "howToUse": "{{prefix}}ban\n{{prefix}}ban <reason>",
         "category": 2
     },

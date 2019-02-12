@@ -26,7 +26,7 @@
         "topRole": "🙄 O **usuário mencionado** possui um cargo **mais alto** que o seu.",
         "notBannable": "😒 Parece que **não consigo banir** este usuário.",
         "notReason": "Mótivo não mencionado.",
-        "banned": "✅ O **usuário** {{member}} foi **banido do servidor** por {{author}}."
+        "banned": "✅ O **usuário** `{{member}}` foi **banido do servidor** por {{author}}."
     },
     "botban": {
         "noPermission": "😒 Você **precisa** ser um `owner`, `subowner`, `operator`, `developer` ou `supervisor` para usar **este** comando",
