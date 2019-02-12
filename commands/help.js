@@ -12,7 +12,7 @@ module.exports = class Help extends command {
         files.forEach(file => {
           comandos.push({
             name: file.split(".")[0],
-            desc: 'a\n' + t(`help:${file.split(".")[0]}.desc`),
+            desc: t(`help:${file.split(".")[0]}.desc`),
             aliases: this.client.commands.get(file.split(".")[0]).aliases,
             category: parseInt(t(`help:${file.split(".")[0]}.category`))
           })
@@ -22,7 +22,7 @@ module.exports = class Help extends command {
           var embed = new this.client.Discord.RichEmbed()
             .setTitle(`🖇 ${cmdName.firstUpperLetter()}:`)
             .setDescription(t(`help:${cmdName}.desc`))
-            .addField(t('comandos:help.howToUse'), '```' + t(`help:${cmdName}.howToUse`, { prefix: prefix }) + '```')
+            .addField(t('comandos:help.howToUse'), '```a\n' + t(`help:${cmdName}.howToUse`, { prefix: prefix }) + '```')
             .addField(t('comandos:help.aliases'), comandos.filter(command => command.name === cmdName)[0].aliases.length > 0 ? '```' + comandos.filter(command => command.name === cmdName)[0].aliases.map(aliase => prefix + aliase).join('\n') + '```' : t('comandos:help.notHaveAliases'))
             .setThumbnail('https://i.imgur.com/b4fhI15.png')
             .setTimestamp(new Date())
@@ -65,7 +65,7 @@ module.exports = class Help extends command {
               moderation.on('collect', async r => {
                 r.remove(r.users.last().id).catch(e => {})
                 embed.setTitle(t(`comandos:help.moderation`, { count: comandos.filter(cmd => cmd.category === 2).length }))
-                embed.setDescription(comandos.filter(cmd => cmd.category === 1).map(cmd => `**${cmd.name}** - ${cmd.desc.toLowerCase()}`).join('\n'))
+                embed.setDescription(comandos.filter(cmd => cmd.category === 2).map(cmd => `**${cmd.name}** - ${cmd.desc.toLowerCase()}`).join('\n'))
                 msg.edit(embed)
               })
               finalizar.on('collect', async r => {
