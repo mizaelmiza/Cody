@@ -1,5 +1,6 @@
 var roleSetDelay = new Set()
 var vipDelay = new Set()
+var mentionDelay = new Set()
 module.exports = async function (message) {
     if (message.channel.type === 'dm') return;
     if (message.author.bot) return;
@@ -65,6 +66,14 @@ module.exports = async function (message) {
                             }
                         }
 
+                        if(message.content.includes(`<@${this.user.id}>`) || message.content.includes(`<@!${this.user.id}>`)) {
+                            mentionDelay.add(message.author.id)
+                            setTimeout(function() {
+                                mentionDelay.delete(message.author.id)
+                            }, 10 * 1000)
+                            message.channel.send(t('eventos:mentionBot', { member: message.member, prefix: servidor.prefix }))
+                        }
+
                         if(!vipDelay.has(message.author.id)) {
                             vipDelay.add(message.author.id)
                             setTimeout(function() {
@@ -82,7 +91,7 @@ module.exports = async function (message) {
                                 }
                             })
                         }
-    
+
                         if(message.guild.id === '507295947789828106' && this.user.id !== '539671041409024000') {
                             if(roleSetDelay.has(message.author.id)) return;
                             setTimeout(() => {
