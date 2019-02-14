@@ -66,7 +66,7 @@ module.exports = async function (message) {
                             }
                         }
 
-                        if(message.content.includes(`<@${this.user.id}>`) || message.content.includes(`<@!${this.user.id}>`)) {
+                        if(!mentionDelay.has(message.author.id) && (message.content.includes(`<@${this.user.id}>`) || message.content.includes(`<@!${this.user.id}>`))) {
                             mentionDelay.add(message.author.id)
                             setTimeout(function() {
                                 mentionDelay.delete(message.author.id)
