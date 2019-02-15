@@ -1,5 +1,5 @@
 module.exports = async function (member) {
-    this.database.Guilds.findOne({'_id': member.guild.id}).then(servidor => {
+    this.database.Guilds.findOne({'_id': member.guild.id}).then(async servidor => {
         if(!servidor) return;
         if(servidor.muteds.includes(member.id)) {
             var role = await member.guild.roles.find(role => role.name === '🔇Cody Mute')
