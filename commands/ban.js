@@ -1,6 +1,6 @@
 const { command } = require('../utils')
 
-module.exports = class BotBan extends command {
+module.exports = class Ban extends command {
     constructor (name, client) {
         super (name, client)
         this.aliases = ['banir']

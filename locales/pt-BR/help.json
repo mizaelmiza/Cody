@@ -11,7 +11,7 @@
     },
     "ban": {
         "desc": "Execute um banimento em um usuário.",
-        "howToUse": "{{prefix}}ban\n{{prefix}}ban <reason>",
+        "howToUse": "{{prefix}}ban <mention>\n{{prefix}}ban <mention> <reason>",
         "category": 2
     },
     "clear": {
@@ -33,6 +33,11 @@
         "desc": "Visualize várias informações gerais sobre o bot.",
         "howToUse": "{{prefix}}info",
         "category": 1
+    },
+    "kick": {
+        "desc": "Expulse um usuário do servidor..",
+        "howToUse": "{{prefix}}kick <mention>\n{{prefix}}kick <mention> <reason>",
+        "category": 2
     },
     "lang": {
         "desc": "Altere o idioma do bot em seu servidor.",
