@@ -23,6 +23,10 @@ var User = new Schema({
     type: Boolean,
     default: false
   },
+  muteds: {
+    type: Array,
+    default: []
+  },
   cmdcoldown: {
     type: String,
     default: '0000000000000'

@@ -5,7 +5,7 @@ module.exports = class Ban extends command {
         super (name, client)
         this.aliases = ['banir']
     }
-    async run ({message, args, usuario, servidor}) {
+    async run ({message, args, usuario}) {
         if(!await this.client.verPerm(['BAN_MEMBERS', 'owner', 'subowner', 'operator'], message.member, usuario)) return message.channel.send(t('comandos:ban.noPermission'));
         if(!message.guild.me.hasPermission(['BAN_MEMBERS'])) return message.channel.send(t('comandos:ban.noBotPermBan'));
         if(!args[0]) return message.channel.send(t('comandos:ban.noArgs'));

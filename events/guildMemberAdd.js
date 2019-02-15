@@ -1,6 +1,15 @@
 module.exports = async function (member) {
     this.database.Guilds.findOne({'_id': member.guild.id}).then(servidor => {
         if(!servidor) return;
+        if(servidor.muteds.includes(member.id)) {
+            var role = await member.guild.roles.find(role => role.name === '🔇Cody Mute')
+            if(role) {
+                member.addRole(role.id)
+            } else {
+                servidor.muteds.splice(servidor.muteds.indexOf(member.id), 1)
+                servidor.save()
+            }
+        }
         if(servidor.autorole.get('on')) {
             servidor.autorole.get('idRoles').forEach(async roleID => {
                 if(member.guild.roles.get(roleID)) {

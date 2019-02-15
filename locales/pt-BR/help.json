@@ -35,7 +35,7 @@
         "category": 1
     },
     "kick": {
-        "desc": "Expulse um usuário do servidor..",
+        "desc": "Expulse um usuário do servidor.",
         "howToUse": "{{prefix}}kick <mention>\n{{prefix}}kick <mention> <reason>",
         "category": 2
     },
@@ -43,6 +43,11 @@
         "desc": "Altere o idioma do bot em seu servidor.",
         "howToUse": "{{prefix}}lang",
         "category": 1
+    },
+    "mute": {
+        "desc": "Proíba um usuário de escrever no servidor.",
+        "howToUse": "{{prefix}}mute <mention>",
+        "category": 2
     },
     "ping": {
         "desc": "Visualize como está à minha conexão com o discord.",

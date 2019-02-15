@@ -126,8 +126,17 @@
         "title": "📋 Linguagens:",
         "notHaveErrors": "sem erros no momento",
         "currentLanguage": "idioma já definido",
-        "desc": "Para alterar o **idioma do bot**, basta **reagir** na bandeira de seu **pais**.\n\nErro: `{{error}}`",
+        "desc": "Para alterar o **idioma do bot**, basta **reagir** na bandeira de seu **pais**.\n\n**Erro:** `{{error}}`",
         "defined": "✅ O **idioma** `{{lang}}` foi **definido**."
+    },
+    "mute": {
+        "noPermission": "😕 É **necessário** possuir a **permissão** `GERENCIAR CARGOS`.",
+        "noPermBot": "😕 Parece que **não possuo** a permissão `GERENCIAR CARGOS` no **servidor**.",
+        "noArgs": "😶 É preciso **mencionar** o usuário que **deseja mutar**.",
+        "topRole": "🙄 Você **não possui** permissão para **adicionar** o cargo `{{role}}` à um **usuário**.",
+        "muted": "✅ O membro {{member}} foi **mutado** por {{author}}.",
+        "unmuted": "✅ O membro {{member}} foi **desmutado** por {{author}}.",
+        "useAgain": "🙄 Parece que o cargo `{{role}}` **não existia**, use o **comando** novamente."
     },
     "staff": {
         "userNotFound": "**Não encontrado#0000**",

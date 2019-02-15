@@ -5,7 +5,7 @@ module.exports = class Kick extends command {
         super (name, client)
         this.aliases = ['expulsar']
     }
-    async run ({message, args, usuario, servidor}) {
+    async run ({message, args, usuario}) {
         if(!await this.client.verPerm(['KICK_MEMBERS', 'owner', 'subowner', 'operator'], message.member, usuario)) return message.channel.send(t('comandos:kick.noPermission'));
         if(!message.guild.me.hasPermission(['KICK_MEMBERS'])) return message.channel.send(t('comandos:kick.noBotPermKick'));
         if(!args[0]) return message.channel.send(t('comandos:kick.noArgs'));
