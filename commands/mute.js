@@ -24,7 +24,7 @@ module.exports = class Mute extends command {
                 }
                 message.channel.send(t('comandos:mute.muted', { member: member, author: message.member }))
             } else {
-                if(servidor.muted.includes(member.id)) {
+                if(servidor.muteds.includes(member.id)) {
                     servidor.muteds.splice(servidor.muteds.indexOf(member.id), 1)
                     servidor.save()
                 }
