@@ -33,7 +33,7 @@ module.exports = class Mute extends command {
             }
         } else {
             var role = await message.guild.createRole({name: roleName, permissions: 0})
-            message.guilds.channels.forEach(async channel => {
+            message.guild.channels.filter(channel => channel.permissionsFor(this.client.user.id).has('MANAGE_ROLES_OR_PERMISSIONS')).forEach(async channel => {
                 channel.overwritePermissions(role, {SEND_MESSAGES: false})
             })
             message.channel.send(t('comandos:mute.useAgain', { role: roleName }))
