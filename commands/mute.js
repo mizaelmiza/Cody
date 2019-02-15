@@ -18,7 +18,7 @@ module.exports = class Mute extends command {
                 if(message.member.highestRole.position <= role.position && message.guild.owner.id !== message.author.id) return message.channel.send(t('comandos:mute.topRole', { role: roleName }))
                 if(message.guild.me.highestRole.position <= role.position) return message.channel.send(t('comandos:mute.topRole', { role: roleName }))
                 await member.addRole(role.id)
-                if(!servidor.muted.includes(member.id)) {
+                if(!servidor.muteds.includes(member.id)) {
                     servidor.muteds.push(member.id)
                     servidor.save()
                 }
