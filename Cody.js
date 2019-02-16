@@ -117,7 +117,8 @@ module.exports = class Cody extends Client {
                     lang: this.regionsLang[doc.content.region] ? this.regionsLang[doc.content.region] : 'pt-BR',
                     prefix: this.user.id === '539671041409024000' ? 'c.' : 'c!',
                     concierge: { welcome: { on: false, message: 'None', channel: 'None' }, byebye: { on: false, message: 'None', channel: 'None' } },
-                    autorole: { on: false, idRoles: [] }
+                    autorole: { on: false, idRoles: [] },
+                    muteds: []
                 })
                 servidor.save()
             } else if(doc.type === 3) {

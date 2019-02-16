@@ -23,10 +23,6 @@ var User = new Schema({
     type: Boolean,
     default: false
   },
-  muteds: {
-    type: Array,
-    default: []
-  },
   cmdcoldown: {
     type: String,
     default: '0000000000000'
@@ -52,7 +48,11 @@ var Guild = new Schema({
   autorole: {
     type: Map,
     default: { on: false, idRoles: [] }
-  }
+  },
+  muteds: {
+    type: Array,
+    default: []
+  },
 })
 
 var Command = new Schema({
