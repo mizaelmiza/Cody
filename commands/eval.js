@@ -5,7 +5,7 @@ module.exports = class Eval extends command {
         super (name, client)
         this.aliases = ['e']
     }
-    async run ({message, args, usuario}, t) {
+    async run ({message, args, usuario, servidor}, t) {
         if(!(await this.client.verPerm(['owner', 'subowner', 'operator', 'developer'], false, usuario))) return message.channel.send(t('comandos:eval.noPermission'));
         if((await this.client.verPerm(['developer'], false, usuario)) && !(await this.client.verPerm(['owner', 'subowner', 'operator'], false, usuario)) && message.guild.id !== '507295947789828106') return message.channel.send(t('comandos:eval.noThisServer'))
         var code = args.join(' ')
